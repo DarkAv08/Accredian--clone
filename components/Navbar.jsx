@@ -30,7 +30,7 @@ export default function Navbar({ onCTAClick }) {
         .nav-desktop-links { display: flex; align-items: center; gap: 4px; }
         .nav-hamburger      { display: none; }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .nav-desktop-links { display: none; }
           .nav-hamburger      { display: flex; }
         }
