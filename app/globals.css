@@ -91,6 +91,7 @@ h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; }
   cursor: pointer;
   transition: all 0.25s;
   font-family: 'DM Sans', sans-serif;
+  width: 100%;
 }
 .btn-primary:hover {
   background: #4338ca;
@@ -109,6 +110,7 @@ h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; }
   cursor: pointer;
   transition: all 0.25s;
   font-family: 'DM Sans', sans-serif;
+  width: 100%;
 }
 .btn-outline:hover {
   border-color: rgba(255,255,255,0.7);
@@ -119,4 +121,15 @@ h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; }
 @media (max-width: 600px) {
   .nav-links { display: none; }
   .nav-mobile-btn { display: block; }
+
+  .section { padding: 64px 16px; }
+  .section-header { margin-bottom: 36px; }
+
+  .btn-primary,
+  .btn-outline { width: 100%; text-align: center; }
+}
+
+@media (min-width: 601px) {
+  .btn-primary,
+  .btn-outline { width: auto; }
 }

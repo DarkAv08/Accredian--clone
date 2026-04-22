@@ -18,6 +18,7 @@ export default function Hero({ onCTAClick }) {
         paddingTop: 72,
       }}
     >
+      {/* Grid overlay */}
       <div
         style={{
           position: "absolute", inset: 0, pointerEvents: "none",
@@ -28,13 +29,12 @@ export default function Hero({ onCTAClick }) {
           backgroundSize: "60px 60px",
         }}
       />
-
+      {/* Blob 1 */}
       <div style={{
         position: "absolute", width: 600, height: 600, borderRadius: "50%",
         background: "radial-gradient(circle, rgba(79,70,229,0.3) 0%, transparent 70%)",
         top: -100, right: -100, pointerEvents: "none",
       }} />
-
       {/* Blob 2 */}
       <div style={{
         position: "absolute", width: 400, height: 400, borderRadius: "50%",
@@ -47,15 +47,42 @@ export default function Hero({ onCTAClick }) {
           0%, 100% { opacity: 1; transform: scale(1); }
           50%       { opacity: 0.6; transform: scale(1.3); }
         }
+        .hero-cta-row {
+          display: flex;
+          gap: 14px;
+          flex-wrap: wrap;
+        }
+        .hero-logos {
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+        @media (max-width: 600px) {
+          .hero-inner {
+            padding: 60px 20px 48px !important;
+          }
+          .hero-cta-row {
+            flex-direction: column;
+          }
+          .hero-logos {
+            gap: 8px;
+          }
+          .hero-logo-pill {
+            font-size: 11px !important;
+            padding: 8px 14px !important;
+          }
+        }
       `}</style>
 
       <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
-        <div style={{
+        <div className="hero-inner" style={{
           maxWidth: 1200,
           margin: "0 auto",
           padding: "80px 48px",
         }}>
 
+          {/* Badge */}
           <div style={{
             display: "inline-flex", alignItems: "center", gap: 8,
             padding: "8px 16px", borderRadius: 100,
@@ -74,7 +101,7 @@ export default function Hero({ onCTAClick }) {
           </div>
 
           <h1 style={{
-            fontSize: "clamp(2.4rem, 5vw, 4rem)",
+            fontSize: "clamp(2rem, 5vw, 4rem)",
             fontWeight: 800, color: "#fff",
             lineHeight: 1.1, marginBottom: 20, maxWidth: 700,
           }}>
@@ -83,7 +110,7 @@ export default function Hero({ onCTAClick }) {
           </h1>
 
           <p style={{
-            fontSize: "1.15rem",
+            fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
             color: "rgba(255,255,255,0.65)",
             maxWidth: 540, lineHeight: 1.7,
             marginBottom: 36, fontWeight: 300,
@@ -92,7 +119,7 @@ export default function Hero({ onCTAClick }) {
             workforce. From Data Science to Gen AI — we build skills that move the needle.
           </p>
 
-          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+          <div className="hero-cta-row">
             <button className="btn-primary" onClick={onCTAClick}>
               Schedule a Demo
             </button>
@@ -108,9 +135,9 @@ export default function Hero({ onCTAClick }) {
             }}>
               Teams from leading companies train with us
             </p>
-            <div style={{ display: "flex", gap: 32, flexWrap: "wrap", alignItems: "center" }}>
+            <div className="hero-logos">
               {TRUSTED_LOGOS.slice(0, 6).map(name => (
-                <div key={name} style={{
+                <div key={name} className="hero-logo-pill" style={{
                   padding: "10px 20px",
                   background: "rgba(255,255,255,0.06)",
                   border: "1px solid rgba(255,255,255,0.1)",

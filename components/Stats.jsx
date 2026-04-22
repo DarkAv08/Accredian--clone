@@ -10,19 +10,49 @@ export default function Stats({ data }) {
   if (!data) return null;
 
   return (
-    <section className="bg-(--white) py-16 px-6 border-b border-(--border) flex justify-center items-center">
-      <div className="max-w-300 mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-        {STAT_CONFIG.map(({ key, label }) => (
-          <div key={key} className="stat-card fade-in text-center">
-            <div className="font-['Syne'] text-[2.4rem] font-extrabold text-(--accent) mb-1">
-              {data[key]}
+    <>
+      <style>{`
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
+          max-width: 900px;
+          margin: 0 auto;
+          width: 100%;
+        }
+        .stat-item {
+          text-align: center;
+          padding: 8px 0;
+        }
+        .stat-value {
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(1.8rem, 4vw, 2.4rem);
+          font-weight: 800;
+          color: var(--accent);
+          margin-bottom: 4px;
+          line-height: 1;
+        }
+        .stat-label {
+          font-size: 0.85rem;
+          color: var(--slate);
+        }
+        @media (max-width: 600px) {
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+          }
+        }
+      `}</style>
+      <section style={{ background: "var(--white)", padding: "48px 24px", borderBottom: "1px solid var(--border)" }}>
+        <div className="stats-grid">
+          {STAT_CONFIG.map(({ key, label }) => (
+            <div key={key} className="stat-item fade-in">
+              <div className="stat-value">{data[key]}</div>
+              <div className="stat-label">{label}</div>
             </div>
-            <div className="text-sm text-(--slate)">
-              {label}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
