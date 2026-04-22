@@ -32,7 +32,12 @@ export default function Navbar({ onCTAClick }) {
 
         @media (max-width: 1024px) {
           .nav-desktop-links { display: none; }
-          .nav-hamburger      { display: flex; }
+          .nav-hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
         }
 
         .nav-mobile-menu {
@@ -157,7 +162,7 @@ export default function Navbar({ onCTAClick }) {
             style={{
               background: "none", border: "none", cursor: "pointer",
               padding: "6px 8px", borderRadius: 8,
-              display: "flex", flexDirection: "column",
+              flexDirection: "column",
               gap: mobileOpen ? "0px" : "5px",
               justifyContent: "center", alignItems: "center",
               width: 40, height: 40,
